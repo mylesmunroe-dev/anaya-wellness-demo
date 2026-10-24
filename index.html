@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#183c30">
+  <meta name="description" content="Anaya Wellness Spa concept website — a calm space for massage, facials and personal care in Nairobi.">
+  <title>Anaya Wellness Spa | Relax. Rejuvenate. Restore.</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <style>
+    :root {
+      --green: #183c30;
+      --green2: #294f40;
+      --cream: #f8f6ef;
+      --sage: #e9ece2;
+      --gold: #c4a064;
+      --ink: #1e3029;
+      --muted: #68736b;
+      --white: #fff;
+      --radius: 18px;
+      --shadow: 0 14px 36px rgba(22, 47, 37, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .notice { background: #f1e8d6; color: #5e4b2c; text-align: center; font-size: .82rem; padding: 8px 14px; }
+    header { background: rgba(248,246,239,.96); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(24,60,48,.08); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--green); }
+    .brand-mark { font-size: 1.8rem; line-height: 1; }
+    .brand-name { font-family: Georgia, 'Times New Roman', serif; font-size: 1.4rem; letter-spacing: .17em; line-height: 1.1; }
+    .brand-sub { font-size: .62rem; letter-spacing: .28em; display: block; text-align: center; }
+    .nav-links { display: flex; align-items: center; gap: 25px; font-size: .86rem; color: #46554d; }
+    .nav-links a:hover { color: var(--gold); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 999px; padding: 13px 21px; background: var(--green); color: white; font-weight: 700; font-size: .9rem; cursor: pointer; transition: transform .2s, background .2s; }
+    .btn:hover { background: var(--green2); transform: translateY(-2px); }
+    .btn.gold { background: var(--gold); color: #fff; }
+    .btn.outline { background: transparent; color: var(--green); border: 1px solid var(--gold); }
+    .menu-toggle { display: none; border: 1px solid #d7ddd5; border-radius: 10px; padding: 8px 12px; background: transparent; color: var(--green); font-size: 1.2rem; }
+    .hero { min-height: 540px; display: grid; align-items: center; color: white; background: linear-gradient(90deg, rgba(13,32,25,.83), rgba(13,32,25,.36) 58%, rgba(13,32,25,.05)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85') center/cover; }
+    .hero-content { max-width: 600px; padding: 80px 0; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; font-weight: 700; color: var(--gold); }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; line-height: 1.12; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.1rem); margin: 18px 0; }
+    .hero p { max-width: 490px; font-size: 1.05rem; color: rgba(255,255,255,.9); margin-bottom: 27px; }
+    .section { padding: 82px 0; }
+    .section-head { text-align: center; max-width: 690px; margin: 0 auto 42px; }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 12px 0; color: var(--green); }
+    .section-head p { color: var(--muted); margin: 0; }
+    .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .service { padding: 28px 22px; text-align: center; border: 1px solid rgba(24,60,48,.09); border-radius: var(--radius); background: rgba(255,255,255,.62); transition: transform .2s, box-shadow .2s; }
+    .service:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .service-icon { width: 66px; height: 66px; margin: 0 auto 18px; display: grid; place-items: center; background: var(--sage); border-radius: 50%; font-size: 1.7rem; }
+    .service h3 { font-size: 1.45rem; margin: 0 0 10px; }
+    .service p { color: var(--muted); font-size: .92rem; margin: 0; }
+    .about { display: grid; grid-template-columns: 1fr 1fr; background: var(--sage); }
+    .about-image { min-height: 420px; background: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85') center/cover; }
+    .about-copy { padding: clamp(35px, 6vw, 82px); align-self: center; }
+    .about-copy h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); margin: 12px 0 20px; }
+    .about-copy p { color: #59685f; margin-bottom: 25px; }
+    .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+    .feature { text-align: center; padding: 12px; }
+    .feature-icon { font-size: 1.8rem; color: var(--green); margin-bottom: 10px; }
+    .feature h3 { font-size: 1.25rem; margin: 0 0 8px; }
+    .feature p { font-size: .9rem; color: var(--muted); margin: 0; }
+    .gallery { background: #eef0e8; }
+    .gallery-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; }
+    .gallery-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 14px; }
+    .contact { background: var(--green); color: white; }
+    .contact .section-head h2 { color: white; }
+    .contact .section-head p { color: #d1ddd5; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+    .contact-card { padding: 30px; border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius); background: rgba(255,255,255,.05); }
+    .contact-card h3 { font-size: 1.7rem; margin-top: 0; }
+    .contact-item { margin: 15px 0; color: #e0e8e2; }
+    .contact-item strong { color: white; display: block; }
+    .form-row { margin-bottom: 14px; }
+    label { display: block; font-size: .88rem; margin-bottom: 6px; color: #e0e8e2; }
+    input, select, textarea { width: 100%; padding: 13px 14px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.95); border-radius: 10px; font: inherit; color: var(--ink); }
+    textarea { min-height: 95px; resize: vertical; }
+    .form-note { font-size: .8rem; color: #c8d7ce; }
+    footer { background: #102d23; color: #d9e2dc; padding: 25px 0; font-size: .85rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-brand { color: white; font-family: Georgia, 'Times New Roman', serif; letter-spacing: .18em; font-size: 1.15rem; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: var(--gold); }
+    @media (max-width: 850px) {
+      .nav-links { gap: 13px; font-size: .8rem; }
+      .nav .btn { padding: 11px 15px; font-size: .8rem; }
+      .services, .features { grid-template-columns: repeat(2, 1fr); }
+      .about { grid-template-columns: 1fr; }
+      .about-image { min-height: 320px; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .nav { min-height: 70px; flex-wrap: wrap; padding: 10px 0; }
+      .menu-toggle { display: block; }
+      .nav .btn { display: none; }
+      .nav-links { display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; padding: 8px 0 14px; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 0; border-top: 1px solid rgba(24,60,48,.08); }
+      .hero { min-height: 560px; background-position: 60% center; }
+      .hero-content { padding: 65px 0; }
+      .hero p { font-size: .98rem; }
+      .section { padding: 60px 0; }
+      .services, .features { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid img { height: 175px; }
+      .gallery-grid img:first-child { grid-column: 1 / -1; height: 220px; }
+      .contact-card { padding: 22px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">Concept demo for presentation only — details and services should be confirmed by the business owner.</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Anaya Wellness Spa home">
+        <span class="brand-mark">❀</span>
+        <span><span class="brand-name">ANAYA</span><span class="brand-sub">WELLNESS SPA</span></span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#gallery" onclick="closeMenu()">Gallery</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </nav>
+      <a class="btn" href="#contact">Enquire Now <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Welcome to Anaya Wellness Spa</div>
+          <h1>Relax.<br>Rejuvenate.<br>Restore.</h1>
+          <p>A peaceful pause in the heart of Nairobi. Explore massage therapy, skincare and personal care in a calm, welcoming setting.</p>
+          <a class="btn gold" href="#contact">Enquire About a Treatment <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Our Services</div>
+          <h2>Thoughtful Care for Your Wellbeing</h2>
+          <p>A selection of spa and personal-care services to help you make time for yourself.</p>
+        </div>
+        <div class="services">
+          <article class="service"><div class="service-icon">❋</div><h3>Massage Therapy</h3><p>Unwind with a relaxing treatment tailored to your comfort and preferences.</p></article>
+          <article class="service"><div class="service-icon">✧</div><h3>Facials</h3><p>Give your skin a little extra care with a treatment suited to your skincare needs.</p></article>
+          <article class="service"><div class="service-icon">❦</div><h3>Waxing</h3><p>Personal-care treatments in a professional and welcoming environment.</p></article>
+          <article class="service"><div class="service-icon">♧</div><h3>Wellness Care</h3><p>Ask the team about available treatments and recommendations for your visit.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-image" role="img" aria-label="Peaceful spa treatment room"></div>
+      <div class="about-copy">
+        <div class="eyebrow">A Moment for You</div>
+        <h2>Your wellbeing deserves a pause.</h2>
+        <p>At Anaya Wellness Spa, the idea is simple: create space to slow down, feel cared for and leave a little more refreshed. This concept page can be customised with the spa's own story, treatment menu, photographs and brand details.</p>
+        <a class="btn outline" href="#contact">Ask a Question <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">The Experience</div>
+          <h2>Care in the Details</h2>
+          <p>A good visit begins with clear information and a warm welcome.</p>
+        </div>
+        <div class="features">
+          <div class="feature"><div class="feature-icon">✿</div><h3>Personalised Care</h3><p>Help clients find a treatment that suits their needs.</p></div>
+          <div class="feature"><div class="feature-icon">❧</div><h3>Calm Atmosphere</h3><p>A peaceful feel from the first look at the website.</p></div>
+          <div class="feature"><div class="feature-icon">⌖</div><h3>Nairobi Location</h3><p>Clear directions and contact details for easy planning.</p></div>
+          <div class="feature"><div class="feature-icon">♡</div><h3>Easy Enquiries</h3><p>One simple place for clients to ask about services.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">The Atmosphere</div>
+          <h2>A Little Space to Unwind</h2>
+          <p>Sample imagery for this concept. The final website should use photos approved by Anaya Wellness Spa.</p>
+        </div>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=85" alt="Spa interior with a peaceful atmosphere" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=85" alt="Spa treatment setting" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=85" alt="Relaxing wellness treatment" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Get in Touch</div>
+          <h2>Make Time for Yourself</h2>
+          <p>Have a question about a treatment? Send an enquiry and the team can help you with the next step.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Visit or Contact Us</h3>
+            <div class="contact-item"><strong>Location</strong>Kimathi Chambers, Kimathi Street, Nairobi CBD <br><span class="form-note">Demo address — confirm with the business before publishing.</span></div>
+            <div class="contact-item"><strong>Phone</strong><a href="tel:+254714010203">+254 714 010203</a> <br><span class="form-note">Demo contact — verify with the owner.</span></div>
+            <div class="contact-item"><strong>Hours shown in this concept</strong>Monday–Saturday: 9:00 AM–7:00 PM<br>Sunday: Closed <br><span class="form-note">Please confirm current opening hours.</span></div>
+            <p class="form-note">The final version can link to the owner's preferred phone number, WhatsApp, social pages and map location.</p>
+          </div>
+          <div class="contact-card">
+            <h3>Send an Enquiry</h3>
+            <form id="enquiryForm">
+              <div class="form-row"><label for="name">Your name</label><input id="name" name="name" placeholder="Enter your name" required></div>
+              <div class="form-row"><label for="service">Treatment you're interested in</label><select id="service" name="service" required><option value="">Choose a service</option><option>Massage therapy</option><option>Facial</option><option>Waxing</option><option>Other / not sure yet</option></select></div>
+              <div class="form-row"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us what you'd like to ask"></textarea></div>
+              <button class="btn gold" type="submit">Prepare Enquiry Message →</button>
+              <p class="form-note">Demo interaction: this opens WhatsApp with your enquiry text; it does not make a confirmed booking.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><div class="footer-brand">ANAYA</div><div>WELLNESS SPA</div></div>
+      <div>Beauty · Wellness · Balance</div>
+      <div class="footer-links"><a href="#home">Back to top ↑</a><a href="#contact">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      const button = document.querySelector('.menu-toggle');
+      const isOpen = nav.classList.toggle('open');
+      button.setAttribute('aria-expanded', String(isOpen));
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+      document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+    }
+    document.getElementById('enquiryForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+      const text = `Hello Anaya Wellness Spa, my name is ${name}. I would like to enquire about: ${service}.${message ? ' Message: ' + message : ''}`;
+      const whatsappUrl = 'https://wa.me/254714010203?text=' + encodeURIComponent(text);
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    });
+  </script>
+</body>
+</html>
